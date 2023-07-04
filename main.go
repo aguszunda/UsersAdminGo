@@ -1,7 +1,7 @@
 package main
 
 import (
-	"agustinzunda/usersadmingo/db"
+	"agustinzunda/usersadmingo/internal/db"
 )
 
 func main() {

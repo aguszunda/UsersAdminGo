@@ -1,7 +1,7 @@
 package controllers_test
 
 import (
-	controllers "agustinzunda/usersadmingo/controllers"
+	controllers "agustinzunda/usersadmingo/internal/controller"
 	"net/http"
 	"net/http/httptest"
 	"testing"

@@ -1,27 +1,22 @@
 package db
 
 import (
+	"agustinzunda/usersadmingo/settings"
 	"database/sql"
 	"fmt"
 	"log"
-	"os"
 
 	_ "github.com/denisenkom/go-mssqldb"
-	"github.com/joho/godotenv"
 )
 
-func init() {
-	err := godotenv.Load()
-	if err != nil {
-		fmt.Println("Error loading .env file")
-	}
-}
-
 func ConnDb() {
-	server := os.Getenv("DB_HOST")
-	port := os.Getenv("DB_PORT")
-	database := os.Getenv("DB_NAME")
-	motor := os.Getenv("DB_MOTOR")
+	setting := settings.NewSettings()
+	fmt.Println(setting)
+
+	server := setting.Server
+	port := setting.Port
+	database := setting.Database
+	motor := setting.Motor
 
 	connString := fmt.Sprintf("server=%s;port=%s;database=%s;trusted_connection=yes", server, port, database)
 
@@ -29,6 +24,7 @@ func ConnDb() {
 	if err != nil {
 		log.Fatal("connection error: ", err.Error())
 	}
+
 	fmt.Println("DataBase connected")
 	defer conn.Close()
 }
