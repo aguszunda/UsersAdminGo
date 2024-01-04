@@ -1,14 +1,12 @@
 package main
 
 import (
-	"agustinzunda/usersadmingo/db"
+	"agustinzunda/usersadmingo/controllers"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	db.ConnDb()
-}
-
-/*func main() {
 	r := gin.Default()
 
 	pingController := controllers.NewUserController()
@@ -17,4 +15,4 @@ func main() {
 
 	r.Run(":8080")
 
-}*/
+}
